@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AFNetworking
 
 class BusinessTableViewCell: UITableViewCell {
     @IBOutlet weak var resNameLabel: UILabel!
@@ -29,12 +28,16 @@ class BusinessTableViewCell: UITableViewCell {
             typeLabel.text = business.categories
             profilePicImage.setImageWithURL(business.imageURL!)
             starsImage.setImageWithURL(business.ratingImageURL!)
-            
         }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        profilePicImage.layer.cornerRadius = 3
+        profilePicImage.clipsToBounds = true
+        
+//        resNameLabel.preferredMaxLayoutWidth = resNameLabel.frame.size
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
